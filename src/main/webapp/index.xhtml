@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:c="http://java.sun.com/jsp/jstl/core">
+	<h:head>
+    	<meta charset="utf-8" name="viewport" content="width=device-width, initial-scale=1" http-equiv="X-UA-Conpatible" />
+    	<h:outputStylesheet library="css" name="bootstrap.min.css" />
+    	<title>Administation : Items management</title>	
+	</h:head>
+	<h:body>
+        <div class="container">
+        	<h3 class="mt-3 mb-3">Manage your own items</h3>
+        	<h:form prependId="false">
+        		<h:dataTable var="item" value="#{itemManagedBean.items}" class="table table-striped table-bordered table-sm">
+        			<h:column>
+						<f:facet name="header">Id</f:facet>
+						#{item.id}
+					</h:column>
+        			<h:column>
+						<f:facet name="header">Name</f:facet>
+						#{item.name}
+					</h:column>
+        			<h:column>
+						<f:facet name="header">Created</f:facet>
+						<h:outputText value="#{item.creation_date}">
+							<f:convertDateTime pattern="dd/MM/yyyy" />
+		  				</h:outputText>
+					</h:column>
+					<h:column>
+						<f:facet name="header">Last update</f:facet>
+						<h:outputText value="#{item.modification_date}">
+							<f:convertDateTime pattern="dd/MM/yyyy" />
+		  				</h:outputText>
+					</h:column>
+        			<h:column>
+						<f:facet name="header">Price</f:facet>
+						#{item.price}
+					</h:column>
+        			<h:column>
+						<f:facet name="header">Category</f:facet>
+						#{item.category.name}
+					</h:column>
+					<h:column>
+						<h:commandButton action="#{itemManagedBean.prepareUpdate(item.id)}" image="/resources/images/edit.png" style="width:30px;height:30px;" />
+					</h:column>
+					<h:column>
+						<h:commandButton onclick="return confirm('Do you really want to delete &quot;#{item.name}&quot; item?');"
+						action="#{itemManagedBean.delete(item.id)}" image="/resources/images/delete.png" style="width:30px;height:30px;" />
+					</h:column>
+        		</h:dataTable>
+        	</h:form>
+        	<div class="form-group d-flex flex-row-reverse mt-4">
+        		<h:form prependId="false">
+        			<h:commandButton value="New item" action="#{itemManagedBean.prepareInsert()}" class="btn btn-primary updateBtnStyle" style="width:150px;" />
+        		</h:form>
+        	</div>
+		</div>
+	</h:body>
+</html>
