@@ -76,4 +76,6 @@ insert into item (name,modification_date,price,category_id) values ("potato",now
 insert into item (name,modification_date,price,category_id) values ("green bean",now(),0.01,2);<br />
 insert into item (name,modification_date,price,category_id) values ("corn",now(),0.6,2);<br />
 <br /><br /><br />
+
+
 > <p><b>Feel free to ask me questions, it will be a pleasure to answer you.</b></p>
