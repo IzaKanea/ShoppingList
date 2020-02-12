@@ -20,7 +20,7 @@ In this project you will find a items list using a CRUD in a MVC pattern. Since 
 <hr>
 
 <b>Select All</b><br />
-<img src="images/ShoppingList-select%20all.png" height="300px;" target="_blank">
+<img src="images/ShoppingList-select-all.png" height="300px;" target="_blank">
 
 
 <b>Insert</b><br /><br />
